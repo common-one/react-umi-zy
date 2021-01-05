@@ -1,8 +1,7 @@
-        
 /**
- * 电站发电数据
+ *预测状态
  * @returns {*}
- */     
+ */
 import{Table} from 'antd';  
 const columns = [
   {

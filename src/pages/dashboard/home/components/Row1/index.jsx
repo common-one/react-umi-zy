@@ -5,13 +5,13 @@ import { FormattedMessage } from 'umi';
 import ShortTermForecast from './ShortTermForecast';
 import SuperShortTermForecast from './SuperShortTermForecast';
 import WindTowerForecast from './WindTowerForecast';
-// import PredictioState from './PredictioState';
+import PredictState from "./PredictState";
 
 export default () => {
   return (
     <Row gutter={24}>
       <Col 
-        xl={8}
+        xl={6}
         lg={24}
         md={24}
         sm={24}
@@ -33,7 +33,7 @@ export default () => {
       </Col>
 
       <Col 
-        xl={8}
+        xl={6}
         lg={24}
         md={24}
         sm={24}
@@ -55,7 +55,7 @@ export default () => {
       </Col>
 
       <Col 
-        xl={8}
+        xl={6}
         lg={24}
         md={24}
         sm={24}
@@ -76,7 +76,7 @@ export default () => {
         </Card>
       </Col>
 
-      {/* <Col
+      {/* {/* <Col
         xl={5}
         lg={24}
         md={24}
@@ -96,10 +96,10 @@ export default () => {
         >
           <WindTowerForecast />
         </Card>
-      </Col>
+      </Col> */}
 
       <Col
-        xl={4}
+        xl={6}
         lg={24}
         md={24}
         sm={24}
@@ -111,14 +111,14 @@ export default () => {
         <Card
           title={
             <FormattedMessage
-              id="dashboardAndhome.home.row1.column5"
+              id="dashboardAndhome.home.row1.column4"
             />
           }
           bordered={false}
         >
-          <PredictioState />
+          <PredictState />
         </Card>
-      </Col> */}
+      </Col> 
     </Row>
   );
 };
