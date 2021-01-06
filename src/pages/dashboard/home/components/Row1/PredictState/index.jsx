@@ -2,46 +2,42 @@
  *预测状态
  * @returns {*}
  */
-import{Table} from 'antd';  
-const columns = [
-  {
-    title: '',
-    dataIndex: 'logo',
-  },
-  {
-    title: '',
-    dataIndex: 'power',
-  },
-  {
-    title: '',
-    dataIndex: 'unit',
-  },
-];
+import React from 'react';
 
-const data = [
-  {
-    key: '1',
-    logo: '',
-    power:'实时功率',
-    unit: 'MW',
-  },
-  {
-    key: '2',
-    logo: '',
-    power:'短期功率预测',
-    unit: '15.31MW',
-  },
-  {
-    key: '3',
-    logo: '',
-    power:'超短期功率预测',
-    unit: '25.11MW',
-  },
- 
-];
-export default () => {
-    return (
-      <div><Table showHeader={false} columns={columns}dataSource={data}pagination={false} /></div>
-    )
+export default class ShortTermForecast extends React.Component{
+constructor(props){
+  super(props);
+  this.state = {
+    banners:[]
   }
-  
+}
+
+componentDidMount(){
+  fetch("http://iwenwiki.com/api/blueberrypai/getIndexBanner.php")
+.then(res => res.json())
+.then(data =>{
+  this.setState({
+    banners:data.banner
+  })
+})
+}
+render(){
+  const{banners}=this.state;
+  return(
+    <div>
+      {
+        banners.length >0?
+        <ul>
+          {
+            banners.map((element,index)=>{
+              return <li key={element.title +index}> {element.title}</li>
+            })
+          }
+        </ul>
+        :<div>等待数据加载</div>
+      }
+
+    </div>
+  )
+}
+}
